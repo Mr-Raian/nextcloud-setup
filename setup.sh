@@ -3,9 +3,21 @@ if [[ `whoami` != "root" ]]; then
     echo "You didn't run me as root! Run me as root"
     exit 1
 fi
+cd ~
+git clone https://gitlab.com/mr.r/nextcloud-setup
 ROOT_SQL_PASS=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+while [[ -z "$DOMAIN" ]]
+do
+  read -p "Enter your domain: " DOMAIN
+done
+while [[ -z "$EMAIL" ]]
+do
+  read -p "Enter your email: " EMAIL
+done
+sed -i "s/YOUR_DOMAIN_HERE/$DOMAIN/g" ~/nextcloud-setup/src/docker-compose.yml
+sed -i "s/YOUR_EMAIL_HERE/$EMAIL/g" ~/nextcloud-setup/src/docker-compose.yml
 apt-get update && 
-DEBIAN_FRONTEND=noninteractive sudo --preserve-env=DEBIAN_FRONTEND apt-get -y upgrade &&
+DEBIAN_FRONTEND=noninteractive apt-get -y upgrade &&
 ## installing docker
 apt-get install -y \
     ca-certificates \

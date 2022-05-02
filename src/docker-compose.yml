@@ -33,7 +33,7 @@ services:
     volumes:
       - nextcloud:/var/www/html:ro
     environment:
-      - VIRTUAL_HOST=YOU_DOMAIN_HERE
+      - VIRTUAL_HOST=YOUR_DOMAIN_HERE
       - LETSENCRYPT_HOST=YOUR_DOMAIN_HERE
       - LETSENCRYPT_EMAIL=YOUR_EMAIL_HERE
     depends_on:
