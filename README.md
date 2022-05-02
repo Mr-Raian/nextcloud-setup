@@ -7,12 +7,11 @@ If you do not meet these requirements, you should not run the script.
 ## Installation
 1. Add the needed DNS records for your domain
 2. SSH into your fresh install of Debian 11
-3. Clone this repository 
-4. `bash setup.sh`
-5. `cd src` and `docker-compose build --pull && docker-compose up -d`
+3. `bash -c $(curl https://gitlab.com/mr.r/nextcloud-setup/-/raw/main/setup.sh)`
+4. You will be asked for your email and the domain name.
 6. **DONE.** Now open your browser, and type your domain.
 ## TODO
 - [ ] Make a backup system
-- [ ] Ask for the domain name, check if domain is pointing to this VPS, if yes, start nextcloud
+- [ ] Check if domain is pointing to this VPS, if yes, start nextcloud
 - [ ] Automatic nextcloud updates
 ####  Licensed Under AGPL v3 

@@ -55,6 +55,7 @@ echo "POSTGRES_PASSWORD=$ROOT_SQL_PASS
 POSTGRES_DB=nextcloud    
 POSTGRES_USER=nextcloud" > ~/nextcloud-setup/src/db.env
 # TODO: 
-# 1. Ask for the domain name
-# 2. Check if domain is pointing to this VPS
-# 3. if yes, start nextcloud
+# 1. Check if domain is pointing to this VPS
+# 2. if yes, start nextcloud
+cd ~/nextcloud-setup/src/
+docker-compose build --pull && docker-compose up -d
